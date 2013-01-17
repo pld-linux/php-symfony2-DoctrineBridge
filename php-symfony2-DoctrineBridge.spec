@@ -4,12 +4,12 @@
 %include	/usr/lib/rpm/macros.php
 Summary:	%{pearname} - Symfony2 Doctrine Bridge
 Name:		php-symfony2-DoctrineBridge
-Version:	2.1.4
+Version:	2.1.6
 Release:	1
 License:	MIT
 Group:		Development/Languages/PHP
 Source0:	http://pear.symfony.com/get/%{pearname}-%{version}.tgz
-# Source0-md5:	2d7c15c307fef296182a32d2649679c5
+# Source0-md5:	e3ee8dc64a8fed866f96bc8d79ef4858
 URL:		http://pear.symfony.com/package/DoctrineBridge/
 BuildRequires:	php-channel(pear.symfony.com)
 BuildRequires:	php-pear-PEAR
