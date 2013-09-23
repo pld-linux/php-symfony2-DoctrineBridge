@@ -1,22 +1,22 @@
-%define		status		stable
 %define		pearname	DoctrineBridge
 %define		php_min_version 5.3.3
 %include	/usr/lib/rpm/macros.php
-Summary:	%{pearname} - Symfony2 Doctrine Bridge
+Summary:	Symfony2 Doctrine Bridge
 Name:		php-symfony2-DoctrineBridge
-Version:	2.1.6
+Version:	2.3.4
 Release:	1
 License:	MIT
 Group:		Development/Languages/PHP
 Source0:	http://pear.symfony.com/get/%{pearname}-%{version}.tgz
-# Source0-md5:	e3ee8dc64a8fed866f96bc8d79ef4858
-URL:		http://pear.symfony.com/package/DoctrineBridge/
+# Source0-md5:	963451fa3803b8ade5f0a8073b047f81
+URL:		https://github.com/symfony/DoctrineBridge
 BuildRequires:	php-channel(pear.symfony.com)
 BuildRequires:	php-pear-PEAR
 BuildRequires:	rpm-php-pearprov >= 4.4.2-11
 BuildRequires:	rpmbuild(macros) >= 1.610
 Requires:	php(core) >= %{php_min_version}
 Requires:	php-channel(pear.symfony.com)
+#Requires:	php-doctrine-common >= 2.2
 Requires:	php-pear >= 4:1.3.10
 Suggests:	php-symfony2-Form
 Suggests:	php-symfony2-Validator
@@ -24,20 +24,16 @@ BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
-Symfony2 Doctrine Bridge
-
-In PEAR status of this package is: %{status}.
+Provides integration for Doctrine with various Symfony2 components.
 
 %prep
 %pear_package_setup
 
 # no packaging of tests
-rm -r .%{php_pear_dir}/Symfony/Bridge/Doctrine/Tests
-rm .%{php_pear_dir}/Symfony/Bridge/Doctrine/phpunit.xml.dist
+mv .%{php_pear_dir}/Symfony/Bridge/Doctrine/Tests .
+mv .%{php_pear_dir}/Symfony/Bridge/Doctrine/phpunit.xml.dist .
 
 # fixups
-mv .%{php_pear_dir}/Symfony/Bridge/Doctrine/CHANGELOG.md .
-rm .%{php_pear_dir}/Symfony/Bridge/Doctrine/.gitattributes
 mv docs/%{pearname}/Symfony/Bridge/Doctrine/* .
 
 %install
