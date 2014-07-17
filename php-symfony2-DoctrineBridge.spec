@@ -3,12 +3,12 @@
 %include	/usr/lib/rpm/macros.php
 Summary:	Symfony2 Doctrine Bridge
 Name:		php-symfony2-DoctrineBridge
-Version:	2.4.3
+Version:	2.4.4
 Release:	1
 License:	MIT
 Group:		Development/Languages/PHP
 Source0:	http://pear.symfony.com/get/%{pearname}-%{version}.tgz
-# Source0-md5:	0c4212ff04f041fb918da6b6219b0b49
+# Source0-md5:	d4b67f100526a2cc8909c7bbd58cfcea
 URL:		https://github.com/symfony/DoctrineBridge
 BuildRequires:	php-channel(pear.symfony.com)
 BuildRequires:	php-pear-PEAR
