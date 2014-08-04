@@ -3,15 +3,14 @@
 %include	/usr/lib/rpm/macros.php
 Summary:	Symfony2 Doctrine Bridge
 Name:		php-symfony2-DoctrineBridge
-Version:	2.4.4
+Version:	2.4.8
 Release:	1
 License:	MIT
 Group:		Development/Languages/PHP
-Source0:	http://pear.symfony.com/get/%{pearname}-%{version}.tgz
-# Source0-md5:	d4b67f100526a2cc8909c7bbd58cfcea
+Source0:	https://github.com/symfony/%{pearname}/archive/v%{version}/%{pearname}-%{version}.tar.gz
+# Source0-md5:	30c1f6d4f26b6817d0dcb911742e52bd
 URL:		https://github.com/symfony/DoctrineBridge
-BuildRequires:	php-channel(pear.symfony.com)
-BuildRequires:	php-pear-PEAR
+BuildRequires:	phpab
 BuildRequires:	rpm-php-pearprov >= 4.4.2-11
 BuildRequires:	rpmbuild(macros) >= 1.610
 Requires:	php(core) >= %{php_min_version}
@@ -21,7 +20,6 @@ Requires:	php(json)
 Requires:	php(mbstring)
 Requires:	php(pcre)
 Requires:	php(spl)
-Requires:	php-channel(pear.symfony.com)
 Requires:	php-pear >= 4:1.3.10
 #Suggests:	php-doctrine-data-fixtures
 #Suggests:	php-doctrine-dbal
@@ -35,27 +33,23 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 Provides integration for Doctrine with various Symfony2 components.
 
 %prep
-%pear_package_setup
+%setup -q -n %{pearname}-%{version}
 
-# no packaging of tests
-mv .%{php_pear_dir}/Symfony/Bridge/Doctrine/Tests .
-mv .%{php_pear_dir}/Symfony/Bridge/Doctrine/phpunit.xml.dist .
-
-# fixups
-mv docs/%{pearname}/Symfony/Bridge/Doctrine/* .
+%build
+phpab -n -e '*/Tests/*' -o autoload.php .
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT%{php_pear_dir}
-%pear_package_install
+install -d $RPM_BUILD_ROOT%{php_pear_dir}/Symfony/Bridge/Doctrine
+cp -a *.php */ $RPM_BUILD_ROOT%{php_pear_dir}/Symfony/Bridge/Doctrine
+rm -r $RPM_BUILD_ROOT%{php_pear_dir}/Symfony/Bridge/Doctrine/Tests
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc CHANGELOG.md LICENSE README.md install.log
-%{php_pear_dir}/.registry/.channel.*/*.reg
+%doc CHANGELOG.md LICENSE README.md
 %dir %{php_pear_dir}/Symfony/Bridge/Doctrine
 %{php_pear_dir}/Symfony/Bridge/Doctrine/*.php
 %{php_pear_dir}/Symfony/Bridge/Doctrine/CacheWarmer
