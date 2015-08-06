@@ -1,14 +1,14 @@
-%define		pearname	DoctrineBridge
-%define		php_min_version 5.3.3
+%define		package	DoctrineBridge
+%define		php_min_version 5.3.9
 %include	/usr/lib/rpm/macros.php
 Summary:	Symfony2 Doctrine Bridge
 Name:		php-symfony2-DoctrineBridge
-Version:	2.4.8
+Version:	2.7.3
 Release:	1
 License:	MIT
 Group:		Development/Languages/PHP
-Source0:	https://github.com/symfony/%{pearname}/archive/v%{version}/%{pearname}-%{version}.tar.gz
-# Source0-md5:	30c1f6d4f26b6817d0dcb911742e52bd
+Source0:	https://github.com/symfony/%{package}/archive/v%{version}/%{package}-%{version}.tar.gz
+# Source0-md5:	3c64f148346947f7c034bc319966a1e2
 URL:		https://github.com/symfony/DoctrineBridge
 BuildRequires:	phpab
 BuildRequires:	rpm-php-pearprov >= 4.4.2-11
@@ -20,6 +20,7 @@ Requires:	php(json)
 Requires:	php(mbstring)
 Requires:	php(pcre)
 Requires:	php(spl)
+#Requires:	php-doctrine-common >= 2.3
 Requires:	php-pear >= 4:1.3.10
 #Suggests:	php-doctrine-data-fixtures
 #Suggests:	php-doctrine-dbal
@@ -33,7 +34,7 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 Provides integration for Doctrine with various Symfony2 components.
 
 %prep
-%setup -q -n %{pearname}-%{version}
+%setup -q -n %{package}-%{version}
 
 %build
 phpab -n -e '*/Tests/*' -o autoloader.php .
