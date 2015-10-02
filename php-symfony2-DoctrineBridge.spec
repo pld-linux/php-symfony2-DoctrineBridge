@@ -3,12 +3,12 @@
 %include	/usr/lib/rpm/macros.php
 Summary:	Symfony2 Doctrine Bridge
 Name:		php-symfony2-DoctrineBridge
-Version:	2.7.3
+Version:	2.7.5
 Release:	1
 License:	MIT
 Group:		Development/Languages/PHP
 Source0:	https://github.com/symfony/%{package}/archive/v%{version}/%{package}-%{version}.tar.gz
-# Source0-md5:	3c64f148346947f7c034bc319966a1e2
+# Source0-md5:	59cdc54c0b05b804c64ed9deb44c0c62
 URL:		https://github.com/symfony/DoctrineBridge
 BuildRequires:	phpab
 BuildRequires:	rpm-php-pearprov >= 4.4.2-11
@@ -20,11 +20,11 @@ Requires:	php(json)
 Requires:	php(mbstring)
 Requires:	php(pcre)
 Requires:	php(spl)
-#Requires:	php-doctrine-common >= 2.3
+#Requires:	php-doctrine-common >= 2.4
 Requires:	php-pear >= 4:1.3.10
 #Suggests:	php-doctrine-data-fixtures
-#Suggests:	php-doctrine-dbal
-#Suggests:	php-doctrine-orm
+#Suggests:	php-doctrine-dbal >= 2.4
+#Suggests:	php-doctrine-orm >= 2.4.5
 Suggests:	php-symfony2-Form
 Suggests:	php-symfony2-Validator
 BuildArch:	noarch
@@ -34,7 +34,7 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 Provides integration for Doctrine with various Symfony2 components.
 
 %prep
-%setup -q -n %{package}-%{version}
+%setup -q -n doctrine-bridge-%{version}
 
 %build
 phpab -n -e '*/Tests/*' -o autoloader.php .
