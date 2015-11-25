@@ -11,7 +11,6 @@ Source0:	https://github.com/symfony/%{package}/archive/v%{version}/%{package}-%{
 # Source0-md5:	79dd758c2a1456b4f7c75d8cc456e012
 URL:		https://github.com/symfony/DoctrineBridge
 BuildRequires:	phpab
-BuildRequires:	rpm-php-pearprov >= 4.4.2-11
 BuildRequires:	rpmbuild(macros) >= 1.610
 Requires:	php(core) >= %{php_min_version}
 Requires:	php(date)
@@ -21,7 +20,6 @@ Requires:	php(mbstring)
 Requires:	php(pcre)
 Requires:	php(spl)
 #Requires:	php-doctrine-common >= 2.4
-Requires:	php-pear >= 4:1.3.10
 #Suggests:	php-doctrine-data-fixtures
 #Suggests:	php-doctrine-dbal >= 2.4
 #Suggests:	php-doctrine-orm >= 2.4.5
