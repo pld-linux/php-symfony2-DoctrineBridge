@@ -3,12 +3,12 @@
 %include	/usr/lib/rpm/macros.php
 Summary:	Symfony2 Doctrine Bridge
 Name:		php-symfony2-DoctrineBridge
-Version:	2.7.5
+Version:	2.7.7
 Release:	1
 License:	MIT
 Group:		Development/Languages/PHP
 Source0:	https://github.com/symfony/%{package}/archive/v%{version}/%{package}-%{version}.tar.gz
-# Source0-md5:	59cdc54c0b05b804c64ed9deb44c0c62
+# Source0-md5:	79dd758c2a1456b4f7c75d8cc456e012
 URL:		https://github.com/symfony/DoctrineBridge
 BuildRequires:	phpab
 BuildRequires:	rpm-php-pearprov >= 4.4.2-11
@@ -37,7 +37,7 @@ Provides integration for Doctrine with various Symfony2 components.
 %setup -q -n doctrine-bridge-%{version}
 
 %build
-phpab -n -e '*/Tests/*' -o autoloader.php .
+phpab -n -e '*/Tests/*' -o autoload.php .
 
 %install
 rm -rf $RPM_BUILD_ROOT
