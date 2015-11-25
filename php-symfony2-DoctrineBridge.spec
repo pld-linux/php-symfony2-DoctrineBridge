@@ -41,9 +41,9 @@ phpab -n -e '*/Tests/*' -o autoload.php .
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT%{php_pear_dir}/Symfony/Bridge/Doctrine
-cp -a *.php */ $RPM_BUILD_ROOT%{php_pear_dir}/Symfony/Bridge/Doctrine
-rm -r $RPM_BUILD_ROOT%{php_pear_dir}/Symfony/Bridge/Doctrine/Tests
+install -d $RPM_BUILD_ROOT%{php_data_dir}/Symfony/Bridge/Doctrine
+cp -a *.php */ $RPM_BUILD_ROOT%{php_data_dir}/Symfony/Bridge/Doctrine
+rm -r $RPM_BUILD_ROOT%{php_data_dir}/Symfony/Bridge/Doctrine/Tests
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -51,16 +51,16 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc CHANGELOG.md LICENSE README.md
-%dir %{php_pear_dir}/Symfony/Bridge/Doctrine
-%{php_pear_dir}/Symfony/Bridge/Doctrine/*.php
-%{php_pear_dir}/Symfony/Bridge/Doctrine/CacheWarmer
-%{php_pear_dir}/Symfony/Bridge/Doctrine/DataCollector
-%{php_pear_dir}/Symfony/Bridge/Doctrine/DataFixtures
-%{php_pear_dir}/Symfony/Bridge/Doctrine/DependencyInjection
-%{php_pear_dir}/Symfony/Bridge/Doctrine/ExpressionLanguage
-%{php_pear_dir}/Symfony/Bridge/Doctrine/Form
-%{php_pear_dir}/Symfony/Bridge/Doctrine/HttpFoundation
-%{php_pear_dir}/Symfony/Bridge/Doctrine/Logger
-%{php_pear_dir}/Symfony/Bridge/Doctrine/Security
-%{php_pear_dir}/Symfony/Bridge/Doctrine/Test
-%{php_pear_dir}/Symfony/Bridge/Doctrine/Validator
+%dir %{php_data_dir}/Symfony/Bridge/Doctrine
+%{php_data_dir}/Symfony/Bridge/Doctrine/*.php
+%{php_data_dir}/Symfony/Bridge/Doctrine/CacheWarmer
+%{php_data_dir}/Symfony/Bridge/Doctrine/DataCollector
+%{php_data_dir}/Symfony/Bridge/Doctrine/DataFixtures
+%{php_data_dir}/Symfony/Bridge/Doctrine/DependencyInjection
+%{php_data_dir}/Symfony/Bridge/Doctrine/ExpressionLanguage
+%{php_data_dir}/Symfony/Bridge/Doctrine/Form
+%{php_data_dir}/Symfony/Bridge/Doctrine/HttpFoundation
+%{php_data_dir}/Symfony/Bridge/Doctrine/Logger
+%{php_data_dir}/Symfony/Bridge/Doctrine/Security
+%{php_data_dir}/Symfony/Bridge/Doctrine/Test
+%{php_data_dir}/Symfony/Bridge/Doctrine/Validator
