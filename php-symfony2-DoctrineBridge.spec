@@ -19,6 +19,7 @@ Requires:	php(json)
 Requires:	php(mbstring)
 Requires:	php(pcre)
 Requires:	php(spl)
+Requires:	php-dirs >= 1.6
 #Requires:	php-doctrine-common >= 2.4
 #Suggests:	php-doctrine-data-fixtures
 #Suggests:	php-doctrine-dbal >= 2.4
