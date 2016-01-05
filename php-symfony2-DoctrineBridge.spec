@@ -3,12 +3,12 @@
 %include	/usr/lib/rpm/macros.php
 Summary:	Symfony2 Doctrine Bridge
 Name:		php-symfony2-DoctrineBridge
-Version:	2.7.7
+Version:	2.7.8
 Release:	1
 License:	MIT
 Group:		Development/Languages/PHP
 Source0:	https://github.com/symfony/%{package}/archive/v%{version}/%{package}-%{version}.tar.gz
-# Source0-md5:	79dd758c2a1456b4f7c75d8cc456e012
+# Source0-md5:	a26817ef3ac71bb90bb53c2cca986935
 URL:		https://github.com/symfony/DoctrineBridge
 BuildRequires:	phpab
 BuildRequires:	rpmbuild(macros) >= 1.610
