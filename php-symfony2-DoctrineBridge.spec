@@ -2,12 +2,12 @@
 %define		php_min_version 5.3.9
 Summary:	Symfony2 Doctrine Bridge
 Name:		php-symfony2-DoctrineBridge
-Version:	2.7.8
+Version:	2.8.52
 Release:	1
 License:	MIT
 Group:		Development/Languages/PHP
 Source0:	https://github.com/symfony/%{package}/archive/v%{version}/%{package}-%{version}.tar.gz
-# Source0-md5:	a26817ef3ac71bb90bb53c2cca986935
+# Source0-md5:	cef21730c06e95046ac619be79c4efb9
 URL:		https://github.com/symfony/DoctrineBridge
 BuildRequires:	phpab
 BuildRequires:	rpmbuild(macros) >= 1.610
@@ -59,6 +59,7 @@ rm -rf $RPM_BUILD_ROOT
 %{php_data_dir}/Symfony/Bridge/Doctrine/Form
 %{php_data_dir}/Symfony/Bridge/Doctrine/HttpFoundation
 %{php_data_dir}/Symfony/Bridge/Doctrine/Logger
+%{php_data_dir}/Symfony/Bridge/Doctrine/PropertyInfo
 %{php_data_dir}/Symfony/Bridge/Doctrine/Security
 %{php_data_dir}/Symfony/Bridge/Doctrine/Test
 %{php_data_dir}/Symfony/Bridge/Doctrine/Validator
